@@ -1,0 +1,15 @@
+title New Note SPA
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over browser: 
+sends data with content-type as a JSON-string
+to the server
+end note 
+
+note over server:
+server responds with status code 201,
+no redirection, therefore no further HTTP requests
+end note
+
+server->browser: status 201
