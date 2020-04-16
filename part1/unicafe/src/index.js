@@ -8,10 +8,6 @@ const Header = (props) => {
 }
 
 const Statistics = ({data}) => {
-
-  // Conditional rendering
-
-  // If total is 0
   if (data[0].value === 0) {
       return (
           <div>
@@ -20,21 +16,16 @@ const Statistics = ({data}) => {
       )
   }
   
-  // Loop to save generic statistics on a list
   const statsList = data.map(function(stat, index) {
       return (
           <Statistic name={stat.name} counter={stat.value} key={index} />
       )
   })
 
-  // Destructuring data for better understanding
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Ignoring_some_returned_values
-
   let good, bad, total;
 
   [good, , bad, total] = data
 
-  // Render the generic list plus the ones with calculus
   return (
       <>
           <table>
