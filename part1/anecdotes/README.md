@@ -1,7 +1,7 @@
-##### feedback buttons & stats exercise
+##### random anecdotes exercise
 
 ###### it looks like this
 
-_screenshot tba_
+<img src="src/screenshot.png" width="300" />
 
 ###### This project was bootstrapped with Create React App
