@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 
 const App = () => {
-  const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
+  const [persons, setPersons] = useState([
+    { name: "Arto Hellas", number: "1234567" }
+  ]);
   const [newName, setNewName] = useState("");
+  const [newNumber, setNewNumber] = useState("");
 
   const handleNewNameChange = event => {
     setNewName(event.target.value);
+  };
+
+  const handleNewNumberChange = event => {
+    setNewNumber(event.target.value);
   };
 
   const handleNewPersonSubmit = event => {
@@ -15,8 +22,12 @@ const App = () => {
       alert(`${newName} is already added to phonebook`);
       return;
     }
-    setPersons([...persons, { name: newName }]);
+    setPersons([
+      ...persons,
+      { name: newName.trim(), number: newNumber.trim() }
+    ]);
     setNewName("");
+    setNewNumber("");
   };
 
   return (
@@ -27,12 +38,17 @@ const App = () => {
           name: <input value={newName} onChange={handleNewNameChange} />
         </div>
         <div>
+          number: <input value={newNumber} onChange={handleNewNumberChange} />
+        </div>
+        <div>
           <button type="submit">add</button>
         </div>
       </form>
       <h2>Numbers</h2>
       {persons.map(person => (
-        <p key={person.name}>{person.name}</p>
+        <p key={person.name}>
+          {person.name} {person.number}
+        </p>
       ))}
     </div>
   );
