@@ -32,3 +32,5 @@
 - [x] Adding styles to React app
 
 <img src="part2/phonebook/src/screenshot.png" width="300" />
+
+<img src="part2/countries/src/screenshot.png" width="300" />
