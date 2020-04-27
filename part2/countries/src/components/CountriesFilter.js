@@ -3,7 +3,7 @@ import React from "react";
 const ContriesFilter = ({ value, onChange }) => {
   return (
     <div>
-      <label htmlFor="countries-search">find countries</label>
+      <label htmlFor="countries-search">search countries </label>
       <input
         type="text"
         id="countries-search"

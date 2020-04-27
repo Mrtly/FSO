@@ -10,7 +10,9 @@ const App = () => {
 
   const filteredCountries = countriesFilter
     ? countries.filter(
-        country => country.name.toLowerCase().search(countriesFilter) !== -1
+        country =>
+          country.name.toLowerCase().search(countriesFilter.toLowerCase()) !==
+          -1
       )
     : countries;
 
@@ -28,11 +30,9 @@ const App = () => {
     setCountriesFilter(filter);
   };
 
-  // console.log(countries);
-  // console.log(filteredCountries);
-  // console.log(countriesFilter);
   return (
     <div className="App">
+      <h2>data for countries</h2>
       <CountriesFilter
         value={countriesFilter}
         onChange={handleCountriesFilterChange}
