@@ -59,9 +59,10 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h2>phonebook</h2>
       <Filter value={filterName} onChange={handleFilterNameChange} />
 
+      <h2>add new</h2>
       <PersonForm
         onSubmit={handleNewPersonSubmit}
         name={newName}
@@ -70,8 +71,8 @@ const App = () => {
         onNumberChange={handleNewNumberChange}
       />
 
-      <h2>Numbers</h2>
-      <Persons persons={personsToShow} />
+      <h2>numbers</h2>
+      <Persons persons={personsToShow} setPersons={setPersons} />
     </div>
   );
 };
