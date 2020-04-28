@@ -18,19 +18,20 @@
 - [x] Component state, event handlers
 - [x] Complex state & debugging
 
-<img src="part1/anecdotes/src/screenshot.png" width="300" />
+<img src="part1/anecdotes/src/screenshot.png" width="500" />
 <img src="part1/unicafe/src/screenshot.png" width="200" />
 
 - [part2](./part2) Communicating with the server
 
-<img src="part2/courseinfo/src/screenshot.png" width="300" />
+<img src="part2/courseinfo/src/screenshot.png" width="500" />
 
 - [x] Rendering a collection, modules
 - [x] Forms
 - [x] Getting data from server
-- [x] Altering data in server
+- [x] Altering data in server - CRUD
+
+<img src="part2/phonebook/src/screenshot.png" width="500" />
+
+<img src="part2/countries/src/screenshot.png" width="500" />
+
 - [x] Adding styles to React app
-
-<img src="part2/phonebook/src/screenshot.png" width="300" />
-
-<img src="part2/countries/src/screenshot.png" width="300" />
