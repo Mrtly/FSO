@@ -33,19 +33,31 @@ const App = () => {
     event.preventDefault();
     const duplicatePersons = persons.filter(person => person.name === newName);
     if (duplicatePersons.length) {
-      alert(`${newName} is already added to phonebook`);
-      return;
+      const personToUpdate = duplicatePersons[0];
+      const replace = window.confirm(
+        `${personToUpdate.name} is already on the list, do you wish to replace the number?`
+      );
+      if (replace) {
+        personToUpdate.number = newNumber;
+        personService.update(personToUpdate).then(data =>
+          setPersons(
+            persons.map(person => {
+              return person.id === data.id ? data : person;
+            })
+          )
+        );
+      }
+    } else {
+      const newPerson = {
+        name: newName.trim(),
+        number: newNumber.trim(),
+        id: persons.length + 1
+      };
+
+      personService.create(newPerson).then(createdPerson => {
+        setPersons([...persons, createdPerson]);
+      });
     }
-
-    const newPerson = {
-      name: newName.trim(),
-      number: newNumber.trim(),
-      id: persons.length + 1
-    };
-
-    personService.create(newPerson).then(createdPerson => {
-      setPersons([...persons, createdPerson]);
-    });
     setNewName("");
     setNewNumber("");
   };
