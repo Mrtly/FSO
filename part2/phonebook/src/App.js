@@ -3,12 +3,14 @@ import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
 import Persons from "./components/Persons";
 import personService from "./services/persons";
+import Notification from "./components/Notification";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
   const [filterName, setFilterName] = useState("");
+  const [notification, setNotification] = useState("");
 
   useEffect(() => {
     //move the axios call to personService
@@ -39,13 +41,14 @@ const App = () => {
       );
       if (replace) {
         personToUpdate.number = newNumber;
-        personService.update(personToUpdate).then(data =>
+        personService.update(personToUpdate).then(data => {
           setPersons(
             persons.map(person => {
               return person.id === data.id ? data : person;
             })
-          )
-        );
+          );
+          setNotification(`Updated ${personToUpdate.name}'s number`);
+        })
       }
     } else {
       const newPerson = {
@@ -57,21 +60,27 @@ const App = () => {
       personService.create(newPerson).then(createdPerson => {
         setPersons([...persons, createdPerson]);
       });
+      setNotification(`Added ${newName}`);
     }
     setNewName("");
     setNewNumber("");
+    setTimeout(() => {
+      setNotification("");
+    }, 3000);
   };
 
   const personsToShow = filterName
     ? persons.filter(
-        person =>
-          person.name.toLowerCase().search(filterName.toLowerCase()) !== -1
-      )
+      person =>
+        person.name.toLowerCase().search(filterName.toLowerCase()) !== -1
+    )
     : persons;
 
   return (
     <div>
       <h2>phonebook</h2>
+      {notification ? <Notification message={notification} /> : null}
+
       <Filter value={filterName} onChange={handleFilterNameChange} />
 
       <h2>add new</h2>
