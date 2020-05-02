@@ -30,8 +30,8 @@
 - [x] Getting data from server
 - [x] Altering data in server - CRUD
 
-<img src="part2/phonebook/src/screenshot.png" width="500" />
-
 <img src="part2/countries/src/screenshot.png" width="500" />
 
 - [x] Adding styles to React app
+
+<img src="part2/phonebook/src/screenshot.png" width="300" />
